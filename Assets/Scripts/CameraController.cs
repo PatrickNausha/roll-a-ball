@@ -18,13 +18,11 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        var lookAtTarget = Player.transform.position + playerRigidbody.velocity * velocityLeadOffsetScaleFactor;
         var discard = new Vector3();
-        transform.position = Vector3.SmoothDamp(transform.position, lookAtTarget + offsetFromLookat, ref discard, smoothDampTime);
+        transform.position = Vector3.SmoothDamp(transform.position, Player.transform.position + offsetFromLookat, ref discard, smoothDampTime);
     }
 
     private Vector3 offsetFromLookat;
-    private float velocityLeadOffsetScaleFactor = 0.5f;
-    private float smoothDampTime = 0.1f;
+    private float smoothDampTime = 0.05f;
     private Rigidbody playerRigidbody;
 }
