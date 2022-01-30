@@ -10,10 +10,6 @@ public class CameraController : MonoBehaviour
     {
         offsetFromLookat = transform.position - Player.transform.position;
         playerRigidbody = Player.GetComponent<Rigidbody>();
-
-        // Make things less jittery
-        // https://docs.unity3d.com/ScriptReference/Rigidbody-interpolation.html
-        playerRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
     }
 
     void LateUpdate()
